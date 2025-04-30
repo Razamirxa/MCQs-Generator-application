@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture Quiz Generator</title>
+    <link rel="icon" href="{{ url_for('static', filename='presentation (1).png') }}" type="image/png"> <!-- Added favicon -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Lecture Quiz Generator</h1>
+        <div id="quiz-form">
+            <input type="text" id="video-url" placeholder="Enter YouTube video URL">
+            <input type="number" id="num-questions" min="1" max="10" value="5" placeholder="Number of questions">
+            <button id="generate-quiz">Generate Quiz</button>
+        </div>
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p id="loading-text">Processing...</p>
+        </div>
+        <!-- New dropdown for transcription -->
+        <div id="transcription-container" class="hidden">
+            <h2>Video Transcription</h2>
+            <button id="toggle-transcription">Show/Hide Transcription</button>
+            <div id="transcription-content" class="hidden">
+                <p id="transcription-text"></p>
+            </div>
+        </div>
+        <div id="quiz-container" class="hidden">
+            <h2>Take the Quiz</h2>
+            <div id="questions"></div>
+            <button id="submit-quiz">Submit Quiz</button>
+        </div>
+        <div id="results-container" class="hidden">
+            <h2>Quiz Results</h2>
+            <p id="score"></p>
+            <div id="question-results"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
